@@ -3,10 +3,9 @@
 #include <stdio.h>
 
 /**
- * main - A program that will assign a random number to the variable n.
- * It wll then print its results
- * and state if positive, negative or zero
- * return: 0
+ * main - Entry point.
+ * description: checks for number if positive or negative.
+ * Return: always 0
  */
 int main(void)
 {
