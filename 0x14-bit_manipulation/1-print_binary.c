@@ -1,29 +1,33 @@
-/**
- * print_binary - prints binary representation of a decimal number
- * @n: number to print in binary
+#include "main.h"
+
+/*
+ * print_binary - Prints the binary representation of a decimal number.
+ * @n: The decimal number to be printed in binary.
  */
 void print_binary(unsigned long int n)
 {
-	int i, count = 0;
+	int i = 63, count = 0;
 	unsigned long int current;
 
-	for (i = 63; i >= 0; i--)
+	/* Skip leading zeros. */
+	while (i >= 0 && !((n >> i) & 1))
 	{
-		current = n >> i;
-
-		switch (current & 1)
-		{
-		case 1:
-			putchar('1');
-			count++;
-			break;
-		default:
-			if (count)
-				putchar('0');
-			break;
-		}
+		i--;
 	}
 
+	/* Iterate through each bit from the most significant to least significant. */
+	while (i >= 0)
+	{
+		current = (n >> i) & 1;
+
+		/* Print the current bit. */
+		_putchar(current ? '1' : '0');
+		count++;
+
+		i--;
+	}
+
+	/* If the number is 0, print a single '0'. */
 	if (!count)
-		putchar('0');
+		_putchar('0');
 }
